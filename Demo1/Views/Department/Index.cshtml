@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Department>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <title>Index</title>
+</head>
+<body>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+               
+                <th>deptName</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                   
+                    <td>@item.deptName</td>
+                    <td>
+                        <a href="/department/details/@item.Id" class="btn btn-info">Detials</a>
+                        <a href="/department/edit/@item.Id" class="btn btn-outline-warning">Edit</a>
+                        <a href="/department/delete/@item.Id" onclick="return confirm('are you sure !')" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</body>
+</html>

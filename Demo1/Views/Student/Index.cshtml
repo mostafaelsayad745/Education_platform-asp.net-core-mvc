@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Student>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <title>Index</title>
+</head>
+<body>
+    <a href="/student/create" class="btn btn-success">create</a>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Age</td>
+                    <td>
+                        <a href="/student/details/@item.Id" class="btn btn-info">Detials</a>
+                        <a href="/student/edit/@item.Id" class="btn btn-outline-warning">Edit</a>
+                        <a href="/student/delete/@item.Id" onclick="return confirm('are you sure !')" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</body>
+</html>

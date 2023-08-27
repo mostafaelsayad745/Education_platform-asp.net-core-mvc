@@ -1,0 +1,37 @@
+﻿@model Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <title>Create</title>
+</head>
+<body>
+    
+    <form method="post">
+       
+        <div>
+            <label>Name :</label>
+            <input type="text" name="Name" /><br />
+            <label>Age :</label>
+            <input type="text" name="Age" /><br />
+            <label>emial :</label>
+            <input type="text" name="Email" /><br />
+
+            <select name="deptNo" asp-for="deptNo">
+                @foreach(var item in ViewBag.departments)
+                {
+                    <option value="@item.Id ">@item.deptName</option>
+                }
+            </select>
+
+            <input type="submit" value="add" class="btn btn-outline-success" />
+        </div>
+    </form>
+</body>
+</html>

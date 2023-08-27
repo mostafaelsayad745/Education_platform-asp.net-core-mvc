@@ -1,0 +1,22 @@
+﻿@model Student
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    <form method="post">
+        <label>Student Name</label>
+        <input type="text" name="Name" value="@Model.Name"/>
+        <label>Student Age</label>
+        <input type="text" name="Age" value="@Model.Age" />
+        <input type="submit" value="update" class="btn btn-danger"/>
+    </form>
+</body>
+</html>
