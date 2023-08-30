@@ -6,7 +6,11 @@ namespace Demo1.Controllers
 {
     public class StudentController : Controller
     {
-        StudentBll db = new StudentBll();
+        Istudent db;
+        public StudentController(Istudent _db)
+        {
+            db = _db;
+        }
         public ViewResult Details([FromRoute] int id)
         {
             DemoDbContext dbContext = new DemoDbContext();
@@ -64,8 +68,26 @@ namespace Demo1.Controllers
             db.Delete(id);
             return RedirectToAction("Index");
         }
+
+
         
-       
+        
+        public IActionResult ValidateUserName(string name )
+        {
+            
+            DemoDbContext dbContext = new DemoDbContext();
+            var stdmail = dbContext.Students.Where(x => x.Name == name).FirstOrDefault();
+            
+            if(stdmail == null )
+            {
+               return Json(true);
+            }
+            return Json(false);
+
+
+        }
+
+
 
     }
 }

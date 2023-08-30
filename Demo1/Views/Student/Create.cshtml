@@ -1,27 +1,42 @@
 ﻿@model Student
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Create Student";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
-    <title>Create</title>
-</head>
-<body>
+
     
     <form method="post">
-       
+       <div asp-validation-summary="All"></div>
         <div>
-            <label>Name :</label>
-            <input type="text" name="Name" /><br />
-            <label>Age :</label>
-            <input type="text" name="Age" /><br />
-            <label>emial :</label>
-            <input type="text" name="Email" /><br />
+            <label asp-for="Name">Name :</label>
+            <input asp-for="Name" /><br />
+           @* <span asp-validation-for="Name"></span>*@
+
+
+            <label asp-for="Age">Age :</label>
+            <input asp-for="Age"/><br />
+           @* <span asp-validation-for="Age"></span>*@
+
+
+            <label asp-for="Email">emial :</label>
+            <input asp-for="Email" /><br />
+            @*<span asp-validation-for="Email"></span>*@
+
+
+            <label asp-for="Password">password :</label>
+            <input asp-for="Password" /><br />
+           @* <span asp-validation-for="Password"></span>*@
+            <br />
+
+            <label asp-for="Cpassword">confirm password :</label>
+            <input asp-for="Cpassword" /><br />
+            @*<span asp-validation-for="Cpassword"></span>*@
+
+
+
+
 
             <select name="deptNo" asp-for="deptNo">
                 @foreach(var item in ViewBag.departments)
@@ -33,5 +48,14 @@
             <input type="submit" value="add" class="btn btn-outline-success" />
         </div>
     </form>
-</body>
-</html>
+
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+   
+<script src="/lib/jquery/dist/jquery.js"></script><a href="d:\faculty of computer science and infomation tecnology\mvc\demo1\demo1\views\student\create.cshtml">d:\faculty of computer science and infomation tecnology\mvc\demo1\demo1\views\student\create.cshtml</a>
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<script src="/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    
+    

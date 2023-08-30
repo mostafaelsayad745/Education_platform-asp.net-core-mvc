@@ -2,7 +2,7 @@
 
 namespace Demo1.Bll
 {
-    public class StudentBll
+    public class StudentBll : Istudent
     {
         DemoDbContext db = new DemoDbContext();
         public List<Student> GetAll()
@@ -25,10 +25,13 @@ namespace Demo1.Bll
             db.Students.Remove(std);
             db.SaveChanges();
         }
-        public void Add(Student student)
+        public Student Add(Student student)
         {
             db.Students.Add(student);
             db.SaveChanges();
+            return student;
         }
+
+       
     }
 }

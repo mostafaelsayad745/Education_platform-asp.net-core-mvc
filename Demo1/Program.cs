@@ -1,3 +1,5 @@
+using Demo1.Bll;
+
 namespace Demo1
 {
     public class Program
@@ -8,8 +10,22 @@ namespace Demo1
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddTransient<Istudent,StudentBll>();
+            builder.Services.AddSession();
             var app = builder.Build();
+
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("before : hello , welcome \n\n");
+            //    await next();
+            //    await context.Response.WriteAsync("after : hello welcome");
+            //}
+            //);
+            //app.Run(async context =>
+            //{
+            //    await context.Response.WriteAsync("next : hello , welcome\n\n");
+            //});
+
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
@@ -23,12 +39,12 @@ namespace Demo1
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthorization();
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Student}/{action=Index}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
         }
